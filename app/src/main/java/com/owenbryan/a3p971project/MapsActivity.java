@@ -1,18 +1,28 @@
 package com.owenbryan.a3p971project;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PointOfInterest;
+import com.owenbryan.a3p971project.YelpFusion.Business;
+import com.owenbryan.a3p971project.YelpFusion.YelpFusion;
 import com.owenbryan.a3p971project.databinding.ActivityMapsBinding;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
@@ -28,6 +38,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+        String query = getIntent().getStringExtra("query");
+        new GetResteraunts().execute(query);
     }
 
     /**
@@ -43,9 +57,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        mMap.setOnInfoWindowClickListener(this);
         // Add a marker in Sydney and move the camera
         LatLng brock = new LatLng(43.1176, -79.2477);
         mMap.addMarker(new MarkerOptions().position(brock).title("Marker on Brock"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(brock));
+    }
+
+    @Override
+    public void onInfoWindowClick(@NonNull Marker marker) {
+        String id = (String) marker.getTag ();
+
+        Intent intent = new Intent(this, testMarker.class);
+
+        intent.putExtra("id", id);
+
+        startActivity(intent);
+
+    }
+
+
+    private class GetResteraunts extends AsyncTask <String, Void, ArrayList<Business>>
+    {
+
+        @Override
+        protected ArrayList<Business> doInBackground(String... strings) {
+            YelpFusion fusion = new YelpFusion();
+            ArrayList<Business> result = null;
+
+            for (String string:
+                 strings) {
+                result = fusion.getBusinesses(string);
+
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Business> businesses) {
+            super.onPostExecute(businesses);
+
+            for (Business b :
+                    businesses) {
+                LatLng place = new LatLng(b.getLatitude(), b.getLongitude());
+
+                Marker marker = mMap.addMarker(new MarkerOptions().position(place).title(b.getName()));
+                marker.setTag(b.getId());
+//                Log.d("b", b.getName());
+            }
+        }
     }
 }
