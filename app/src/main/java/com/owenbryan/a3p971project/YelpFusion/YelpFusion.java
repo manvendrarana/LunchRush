@@ -21,6 +21,90 @@ public class YelpFusion {
     public YelpFusion () {}
 
 
+    public ArrayList<Review> getReviews (String id)
+    {
+        ArrayList<Review> results = new ArrayList<>();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        String searchString = BASE + "/businesses/" + id + "/reviews";
+        URL url = null;
+        try {
+            url = new URL(searchString);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        HttpURLConnection con = null;
+
+        try {
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Authorization", "Bearer aheph9uPSckpKMjZNpz1_FnCEsBsrzsXnkWO7-e41I4QBS1IsCVEUFqLQV2sVRceXPKTD2oSWz6GB9oIDTnHGgg_bJ-1cKrpmWeaSXolPuhgIRQTUIhrglvZEPy4YXYx");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        String input = "";
+        try {
+
+            int code = con.getResponseCode();
+            if (code == 200) {
+                try {
+                    StringBuffer content;
+                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    content = new StringBuffer();
+
+                    while ((input = in.readLine()) != null) {
+                        content.append(input);
+                    }
+                    in.close();
+
+                    con.disconnect();
+
+                    input = content.toString();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        if (input.compareTo("") != 0)
+        {
+            try {
+                JSONObject object = new JSONObject(input);
+                JSONArray reviews = object.getJSONArray("reviews");
+
+                for (int i = 0; i < reviews.length(); i++) {
+                    JSONObject bReview = reviews.getJSONObject(i);
+
+                    Review review = new Review();
+
+                    review.setId(bReview.getString("id"));
+                    review.setText(bReview.getString("text"));
+                    review.setUrl(bReview.getString("url"));
+                    review.setRating(bReview.getInt("rating"));
+                    review.setTimeCreated(bReview.getString("time_created"));
+
+                    results.add(review);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return results;
+    }
+
     public Business getBusiness (String id)
     {
         try {
