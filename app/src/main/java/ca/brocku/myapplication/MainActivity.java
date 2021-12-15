@@ -3,10 +3,14 @@ package ca.brocku.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
             "Harvey's", "McDonald's", "Starbucks", "NOTARESTAURANT"};
 
     ArrayAdapter<String> arrayAdapter;
+    ListView RestaurantMapsAct;
+
 
 
     @Override
@@ -27,10 +33,32 @@ public class MainActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listview);
 
-        //passed restaurant array
+
+        //pre-defined layout in android sdk
+        //restaurant string array has been passed
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,restaurants);
+//        RestaurantMapsAct = findViewById(R.id.action_search);
+//        RestaurantMapsAct.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MainActivity.this,restaurantMap.class);
+//                startActivity(i);
+//
+//            }
+//        });
+
+
         //set adapter to listview
         listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(MainActivity.this,restaurantMap.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
 
@@ -40,13 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
 
+
         SearchView searchView = (SearchView) menuItem.getActionView();
+
         //prompt that shows up when user clicks the search bar
-        searchView.setQueryHint("Please type the name of the restaurant");
+        searchView.setQueryHint("Enter Restaurant Name");
 
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             @Override
             //this method will be called when user types in text and submits the text
             public boolean onQueryTextSubmit(String query) {
@@ -60,7 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 arrayAdapter.getFilter().filter(newText);
                 return false;
             }
+
+
+
+
         });
+
+
+
         return super.onCreateOptionsMenu(menu);
     }
 }

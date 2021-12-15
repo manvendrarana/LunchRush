@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_main.xml" value="0.16261398176291794" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout-land/activity_main.xml" value="0.47354497354497355" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_restaurant_map.xml" value="0.334375" />
         <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/menu/menu.xml" value="0.334375" />
       </map>
     </option>
