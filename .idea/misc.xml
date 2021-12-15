@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout-land/activity_main.xml" value="0.47354497354497355" />
-        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.45208333333333334" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout-land/activity_main.xml" value="0.33" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/activity_restaurant_map.xml" value="0.334375" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/list_businesses.xml" value="0.3770833333333333" />
+        <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/layout/list_restaurants.xml" value="0.5" />
         <entry key="..\:/Manvendra/University/Fall2021/3p97/Project/3p97Project/app/src/main/res/menu/menu.xml" value="0.334375" />
       </map>
     </option>
