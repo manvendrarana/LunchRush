@@ -21,12 +21,17 @@ public class YelpFusion {
     public YelpFusion () {}
 
 
+    /**
+     * Gets the reviews of the restaurant specified.
+     * @param id Business id.
+     * @return ArrayList of reviews.
+     */
     public ArrayList<Review> getReviews (String id)
     {
         ArrayList<Review> results = new ArrayList<>();
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -105,10 +110,15 @@ public class YelpFusion {
         return results;
     }
 
+    /**
+     * Gets the business details using the specified id.
+     * @param id The businesses id.
+     * @return The business details
+     */
     public Business getBusiness (String id)
     {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -189,10 +199,15 @@ public class YelpFusion {
         return result;
     }
 
+    /**
+     * Gets the restaurants via a query made to the yelp api.
+     * @param query The query.
+     * @return ArrayList response from the query.
+     */
     public ArrayList<Business> getBusinesses (String query)
     {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -271,10 +286,15 @@ public class YelpFusion {
         return results;
     }
 
+    /**
+     * Gets recommendations for autocomplete searching.
+     * @param query The thing you want.
+     * @return ArrayList of recommendations.
+     */
     public ArrayList<String> autoComplete (String query)
     {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(2500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

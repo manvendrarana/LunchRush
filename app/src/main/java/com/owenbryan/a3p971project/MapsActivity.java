@@ -20,6 +20,8 @@ import com.owenbryan.a3p971project.YelpFusion.Business;
 import com.owenbryan.a3p971project.YelpFusion.YelpFusion;
 import com.owenbryan.a3p971project.databinding.ActivityMapsBinding;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
@@ -41,6 +43,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         String query = getIntent().getStringExtra("query");
+
+        try {
+            query = URLEncoder.encode(query, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         new GetResteraunts().execute(query);
     }
 
@@ -60,8 +69,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnInfoWindowClickListener(this);
         // Add a marker in Sydney and move the camera
         LatLng brock = new LatLng(43.1176, -79.2477);
-        mMap.addMarker(new MarkerOptions().position(brock).title("Marker on Brock"));
+        Marker brockMaker = mMap.addMarker(new MarkerOptions().position(brock).title("Marker on Brock"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(brock));
+        brockMaker.remove();
+
     }
 
     @Override
