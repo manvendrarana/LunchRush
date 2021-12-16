@@ -186,7 +186,7 @@ public class YelpFusion {
                 location1.setZipCode(location.getString("zip_code"));
                 location1.setState(location.getString("state"));
                 result.setLocation(location1);
-
+                result.setRating(object.getDouble("rating"));
                 result.setDisplayPhone(object.getString("display_phone"));
 
 

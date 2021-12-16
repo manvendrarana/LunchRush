@@ -83,10 +83,15 @@ public class testMarker extends AppCompatActivity {
             TextView textView = (TextView) findViewById(R.id.testM);
             TextView textView1 = (TextView) findViewById(R.id.phoneNumber);
             TextView textView2 = (TextView) findViewById(R.id.displayAddress);
+            TextView rating = (TextView) findViewById(R.id.Rating);
 
             textView.setText(business.getName());
             textView1.setText(business.getDisplayPhone());
             textView2.setText(business.getLocation().getAddress1());
+
+            double bRating = business.getRating();
+            rating.setText(bRating + "");
+
         }
     }
 }
