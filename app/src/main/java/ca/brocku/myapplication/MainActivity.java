@@ -95,16 +95,15 @@ public class MainActivity extends AppCompatActivity {
 
         restaurantHeading = new String[]
 
-                {       "Restaurant: Mcdonald's\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Hut\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Pizza\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Mcdonald's\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Hut\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Pizza\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Mcdonald's\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Hut\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-                        "Restaurant: Pizza Pizza\\n Address: 123 Dealie St\\n Rating: 5\\n Phone: 647-332-5934 ",
-
+                {       "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934 ",
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
+                        "Restaurant: Mcdonald's\n Address: 123 Dealie St\n Rating: 5 Stars \n Phone: 647-332-5934" ,
 
                 };
 

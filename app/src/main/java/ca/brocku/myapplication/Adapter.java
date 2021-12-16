@@ -26,7 +26,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
     @NonNull
     @Override
     public Adapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(c).inflate(R.layout.list_restaurants,parent,false);
+       View ve = LayoutInflater.from(c).inflate(R.layout.list_restaurants,parent,false);
 
 
 
@@ -34,14 +34,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder>{
 
 
 
-        return new Holder(view);
+        return new Holder(ve);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
         Business restaurant = businessArrayList.get(position);
-        holder.restaurantHeading.setText(restaurant.titleImage);
+        holder.restaurantHeading.setText(restaurant.RestaurantHeading);
         holder.restaurantImg.setImageResource(restaurant.titleImage);
 
     }
