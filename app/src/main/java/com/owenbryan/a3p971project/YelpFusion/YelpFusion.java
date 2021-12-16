@@ -204,7 +204,7 @@ public class YelpFusion {
      * @param query The query.
      * @return ArrayList response from the query.
      */
-    public ArrayList<Business> getBusinesses (String query)
+    public ArrayList<Business> getBusinesses (String query, String location)
     {
         try {
             Thread.sleep(2500);
@@ -212,7 +212,7 @@ public class YelpFusion {
             e.printStackTrace();
         }
 
-        String searchString = BASE + "/businesses/search?latitude=43.1176&longitude=-79.2477&title="+ query;
+        String searchString = BASE + "/businesses/search?location=" + location + "&title="+ query;
         URL url = null;
         try {
             url = new URL(searchString);

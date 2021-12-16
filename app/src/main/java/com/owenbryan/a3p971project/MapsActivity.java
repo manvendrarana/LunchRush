@@ -3,6 +3,7 @@ package com.owenbryan.a3p971project;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private double lng = 0;
+    private double lat = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +46,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         String query = getIntent().getStringExtra("query");
-
+        String queryLocation = getIntent().getStringExtra("location");
         try {
             query = URLEncoder.encode(query, "UTF-8");
+            queryLocation = URLEncoder.encode(queryLocation, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
-        new GetResteraunts().execute(query);
+        new GetResteraunts().execute(query, queryLocation);
     }
 
     /**
@@ -67,7 +71,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         mMap.setOnInfoWindowClickListener(this);
-        // Add a marker in Sydney and move the camera
+
+
+
         LatLng brock = new LatLng(43.1176, -79.2477);
         Marker brockMaker = mMap.addMarker(new MarkerOptions().position(brock).title("Marker on Brock"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(brock));
@@ -96,11 +102,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             YelpFusion fusion = new YelpFusion();
             ArrayList<Business> result = null;
 
-            for (String string:
-                 strings) {
-                result = fusion.getBusinesses(string);
+            result = fusion.getBusinesses(strings [0], strings [1]);
 
-            }
             return result;
         }
 

@@ -22,12 +22,33 @@ public class MainActivity extends AppCompatActivity {
     public void searchForBusinesses(View view) {
 
         Intent intent = new Intent(this, MapsActivity.class);
-        TextView textView = (TextView) findViewById(R.id.business);
+        TextView business = (TextView) findViewById(R.id.business);
+        TextView location = (TextView) findViewById(R.id.location);
 
-        String query = textView.getText().toString();
-        intent.putExtra("query", query);
+        String query = business.getText().toString();
 
-        startActivity (intent);
+        if (query.trim().compareTo("") != 0)
+        {
+
+            intent.putExtra("query", query);
+
+
+
+            String queryLocation = location.getText().toString();
+
+            if (queryLocation.trim().compareTo("") != 0)
+            {
+                intent.putExtra("location", queryLocation);
+            }
+            else
+            {
+                intent.putExtra("location", "St. Catharines, ON");
+            }
+
+            startActivity (intent);
+        }
+
+
 
     }
 }
