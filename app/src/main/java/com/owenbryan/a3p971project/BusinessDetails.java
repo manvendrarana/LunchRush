@@ -18,16 +18,15 @@ import com.owenbryan.a3p971project.YelpFusion.Business;
 import com.owenbryan.a3p971project.YelpFusion.Review;
 import com.owenbryan.a3p971project.YelpFusion.YelpFusion;
 
-import java.nio.channels.AsynchronousByteChannel;
 import java.util.ArrayList;
 
-public class testMarker extends AppCompatActivity {
+public class BusinessDetails extends AppCompatActivity {
     String url;
     String phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_marker);
+        setContentView(R.layout.activity_business_details);
 
         String id = getIntent().getStringExtra("id");
 
@@ -99,7 +98,7 @@ public class testMarker extends AppCompatActivity {
                 }
             }
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(testMarker.this, android.R.layout.simple_list_item_1, output);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(BusinessDetails.this, android.R.layout.simple_list_item_1, output);
 
             lv.setAdapter(adapter);
         }

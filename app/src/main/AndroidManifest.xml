@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.3p971Project">
         <activity
-            android:name=".testMarker"
+            android:name=".BusinessDetails"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:divider="@color/black"
-    tools:context=".testMarker">
+    tools:context=".BusinessDetails">
 
     <TextView
         android:id="@+id/testM"

@@ -3,11 +3,9 @@ package com.owenbryan.a3p971project;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,7 +14,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PointOfInterest;
 import com.owenbryan.a3p971project.YelpFusion.Business;
 import com.owenbryan.a3p971project.YelpFusion.YelpFusion;
 import com.owenbryan.a3p971project.databinding.ActivityMapsBinding;
@@ -86,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onInfoWindowClick(@NonNull Marker marker) {
         String id = (String) marker.getTag ();
 
-        Intent intent = new Intent(this, testMarker.class);
+        Intent intent = new Intent(this, BusinessDetails.class);
 
         intent.putExtra("id", id);
 
