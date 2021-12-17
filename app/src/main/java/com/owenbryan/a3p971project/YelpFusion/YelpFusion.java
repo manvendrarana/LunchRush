@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class YelpFusion {
@@ -188,7 +189,7 @@ public class YelpFusion {
                 result.setLocation(location1);
                 result.setRating(object.getDouble("rating"));
                 result.setDisplayPhone(object.getString("display_phone"));
-
+                result.setUrl(object.getString("url"));
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -212,6 +213,7 @@ public class YelpFusion {
             e.printStackTrace();
         }
 
+//        String searchString = BASE + "/businesses/search?location=" + location + "&title="+ query + "&categories=" URLEncoder("restaurants", "UTF-8");
         String searchString = BASE + "/businesses/search?location=" + location + "&title="+ query;
         URL url = null;
         try {

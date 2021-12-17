@@ -77,6 +77,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng brock = new LatLng(43.1176, -79.2477);
         Marker brockMaker = mMap.addMarker(new MarkerOptions().position(brock).title("Marker on Brock"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(brock));
+//        mMap.setMinZoomPreference(12);
         brockMaker.remove();
 
     }

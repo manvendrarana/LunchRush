@@ -2,11 +2,17 @@ package com.owenbryan.a3p971project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.owenbryan.a3p971project.YelpFusion.Business;
 import com.owenbryan.a3p971project.YelpFusion.Review;
@@ -16,7 +22,8 @@ import java.nio.channels.AsynchronousByteChannel;
 import java.util.ArrayList;
 
 public class testMarker extends AppCompatActivity {
-
+    String url;
+    String phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +35,40 @@ public class testMarker extends AppCompatActivity {
 
         new GetBusiness().execute(id);
         new GetReviews().execute(id);
+    }
+
+    public void goToYelp(View view) {
+
+        if(url.compareTo("") != 0)
+        {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+
+            try {
+                startActivity(intent);
+            }
+            catch (ActivityNotFoundException e)
+            {
+                Toast t = Toast.makeText(this, "No web browser available", Toast.LENGTH_SHORT);
+                t.show();
+            }
+        }
+
+    }
+
+    public void openPhone(View view) {
+        if(phone.compareTo("") != 0)
+        {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(url));
+
+            try {
+                startActivity(intent);
+            }
+            catch (ActivityNotFoundException e)
+            {
+                Toast t = Toast.makeText(this, "No phone app available", Toast.LENGTH_SHORT);
+                t.show();
+            }
+        }
     }
 
     private class GetReviews extends AsyncTask <String, Void, ArrayList<Review>>
@@ -88,9 +129,21 @@ public class testMarker extends AppCompatActivity {
             textView.setText(business.getName());
             textView1.setText(business.getDisplayPhone());
             textView2.setText(business.getLocation().getAddress1());
-
+            url = business.getUrl();
+            phone = business.getDisplayPhone();
             double bRating = business.getRating();
             rating.setText(bRating + "");
+
+            if (phone.compareTo("") != 0)
+            {
+                Button yelp = (Button) findViewById(R.id.dial);
+                yelp.setVisibility(View.VISIBLE);
+            }
+            if (url.compareTo("") != 0)
+            {
+                Button yelp = (Button) findViewById(R.id.linkYelp);
+                yelp.setVisibility(View.VISIBLE);
+            }
 
         }
     }

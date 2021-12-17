@@ -69,6 +69,24 @@
             android:layout_margin="5dp"
             />
     </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Yelp page"
+        android:id="@+id/linkYelp"
+        android:onClick="goToYelp"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:layout_margin="5dp"/>
+    <Button
+        android:id="@+id/dial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Call restaurant"
+        android:onClick="openPhone"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:layout_margin="5dp"/>
     <ListView
         android:id="@+id/reviews"
         android:layout_width="match_parent"
