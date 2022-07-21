@@ -1,5 +1,4 @@
-# 3p97
-Mobile Computing Project
+# 3p97 Mobile Computing Project
 
 
 Members:
