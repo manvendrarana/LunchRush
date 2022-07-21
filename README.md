@@ -1,5 +1,6 @@
-# 3p97Project
-Cosc 3p97 Project
+# 3p97
+Mobile Computing Project
+
 
 Members:
 Nimish Mahajan: 6840870
