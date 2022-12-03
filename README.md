@@ -15,7 +15,7 @@ Catharines). The application will then utilize both Google Maps API and Yelp
 Fusion API to search for businesses with the given criteria and return results by
 placing marker on the map. A user is then able to select/touch the marker and
 select the specific restaurant/business and look at relevant information 
-such as (Name, Phone number, address, rating, Reviews).
+such as (Name, Phone number, Address, Rating, Reviews).
 
 # API's Used:
 Google Maps\
