@@ -14,7 +14,7 @@ specific, for example: Pizza, Chicken or even Pizza Hut) and a location (example
 Catharines). The application will then utilize both Google Maps API and Yelp
 Fusion API to search for businesses with the given criteria and return results by
 placing marker on the map. A user is then able to select/touch the marker and
-select the specific restaurant/business and look at specific information relevant
+select the specific restaurant/business and look at relevant information 
 such as (Name, Phone number, address, rating, Reviews).
 
 # API's Used:
